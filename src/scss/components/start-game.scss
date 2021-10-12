@@ -1,0 +1,10 @@
+.start-game {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-tertiary);
+  z-index: 2;
+}
