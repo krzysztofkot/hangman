@@ -9,15 +9,141 @@
   </head>
   <body>
     <div class="start-game">
-      <header class="header"><div class="logo">HANGMAN</div></header>
+      <header class="logo">
+        <h1 class="logo__description">
+          <span class="letter">h</span><span class="letter">a</span
+          ><span class="letter">n</span><span class="letter">g</span
+          ><span class="letter">m</span><span class="letter">a</span
+          ><span class="letter">n</span>
+        </h1>
+        <div class="logo__container logo__container--big">
+          <div class="gallows">
+            <div class="gallows__part gallows__part--base"></div>
+            <div class="gallows__part gallows__part--pillar"></div>
+            <div class="gallows__part gallows__part--transom"></div>
+            <div class="gallows__part gallows__part--strut"></div>
+            <div
+              class="gallows__part gallows__part--line animation__whole"
+            ></div>
+          </div>
+          <div class="human animation__whole">
+            <div class="human__part human__part--head"></div>
+            <div class="human__part human__part--body"></div>
+            <div
+              class="human__part human__part--left-arm animation__left-side"
+            ></div>
+            <div
+              class="human__part human__part--right-arm animation__right-side"
+            ></div>
+            <div
+              class="human__part human__part--left-leg animation__left-side"
+            ></div>
+            <div
+              class="human__part human__part--right-leg animation__right-side"
+            ></div>
+          </div>
+        </div>
+      </header>
       <nav class="nav">
         <ul class="nav__list">
-          <li class="nav__items"><button class="btn">easy</button></li>
-          <li class="nav__items"><button class="btn">medium</button></li>
-          <li class="nav__items"><button class="btn">hard</button></li>
+          <li class="nav__item">
+            <button class="btn">
+              <span class="letter">e</span><span class="letter">a</span
+              ><span class="letter">s</span><span class="letter">y</span>
+            </button>
+          </li>
+          <li class="nav__item">
+            <button class="btn">
+              <span class="letter">m</span><span class="letter">e</span
+              ><span class="letter">d</span><span class="letter">i</span
+              ><span class="letter">u</span><spa class="letter">m</spa>
+            </button>
+          </li>
+          <li class="nav__item">
+            <button class="btn">
+              <span class="letter">h</span><span class="letter">a</span
+              ><span class="letter">r</span><span class="letter">d</span>
+            </button>
+          </li>
         </ul>
       </nav>
     </div>
-    <main class="playground">playground</main>
+    <main class="playground">
+      <section class="playground__top">
+        <button class="hint">hint</button>
+        <div class="word">
+          <span class="letter">g</span><span class="letter">u</span
+          ><span class="letter">e</span><span class="letter">s</span
+          ><span class="letter">s</span><span class="letter">i</span
+          ><span class="letter">n</span><span class="letter">g</span>
+        </div>
+      </section>
+      <section class="playground__middle">
+        <div class="logo">
+          <div class="logo__container logo__container--small">
+            <div class="gallows">
+              <div class="gallows__part gallows__part--base"></div>
+              <div class="gallows__part gallows__part--pillar"></div>
+              <div class="gallows__part gallows__part--transom"></div>
+              <div class="gallows__part gallows__part--strut"></div>
+              <div
+                class="gallows__part gallows__part--line animation__whole"
+              ></div>
+            </div>
+            <div class="human animation__whole">
+              <div class="human__part human__part--head"></div>
+              <div class="human__part human__part--body"></div>
+              <div
+                class="human__part human__part--left-arm animation__left-side"
+              ></div>
+              <div
+                class="human__part human__part--right-arm animation__right-side"
+              ></div>
+              <div
+                class="human__part human__part--left-leg animation__left-side"
+              ></div>
+              <div
+                class="human__part human__part--right-leg animation__right-side"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div class="letters">
+          <p class="letters__title">Letters used:</p>
+          <p class="letters__used">a</p>
+          <p class="letters__used">b</p>
+          <p class="letters__used">c</p>
+          <p class="letters__used">d</p>
+        </div>
+      </section>
+      <section class="playground__bottom">
+        <div class="alphabet">
+          <p class="alphabet__char">a</p>
+          <p class="alphabet__char">b</p>
+          <p class="alphabet__char">c</p>
+          <p class="alphabet__char">d</p>
+          <p class="alphabet__char">e</p>
+          <p class="alphabet__char">f</p>
+          <p class="alphabet__char">g</p>
+          <p class="alphabet__char">h</p>
+          <p class="alphabet__char">i</p>
+          <p class="alphabet__char">j</p>
+          <p class="alphabet__char">k</p>
+          <p class="alphabet__char">l</p>
+          <p class="alphabet__char">m</p>
+          <p class="alphabet__char">n</p>
+          <p class="alphabet__char">o</p>
+          <p class="alphabet__char">p</p>
+          <p class="alphabet__char">r</p>
+          <p class="alphabet__char">s</p>
+          <p class="alphabet__char">t</p>
+          <p class="alphabet__char">u</p>
+          <p class="alphabet__char">w</p>
+          <p class="alphabet__char">x</p>
+          <p class="alphabet__char">y</p>
+          <p class="alphabet__char">z</p>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
