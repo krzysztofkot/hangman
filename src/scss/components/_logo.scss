@@ -1,0 +1,124 @@
+.logo {
+  &__description {
+    text-align: center;
+    font-size: 40px;
+    text-transform: uppercase;
+  }
+
+  &__container {
+    margin: 0 auto;
+    position: relative;
+    &--big {
+      width: min(75vh, 75vw);
+      height: min(75vh, 75vw);
+      max-width: 600px;
+      max-height: 600px;
+    }
+
+    &--small {
+      width: min(50vh, 50vw);
+      height: min(50vh, 50vw);
+      max-width: 400px;
+      max-height: 400px;
+    }
+  }
+}
+
+.gallows {
+  &__part {
+    position: absolute;
+    background: linear-gradient(
+      90deg,
+      rgba(84, 73, 62, 1) 0%,
+      rgba(79, 60, 45, 1) 100%
+    );
+    &--base,
+    &--transom {
+      height: 4%;
+
+      left: 10%;
+    }
+    &--base {
+      top: 90%;
+      width: 40%;
+    }
+    &--pillar {
+      width: 4%;
+      height: 80%;
+      left: 20%;
+      bottom: 10%;
+    }
+    &--transom {
+      top: 10%;
+      width: 60%;
+    }
+    &--strut {
+      top: 7%;
+      left: 30%;
+      width: 4%;
+      height: 30%;
+      transform: rotate(45deg);
+    }
+    &--line {
+      width: 2%;
+      height: 16.5%;
+      left: 50%;
+      top: 13.5%;
+      transform-origin: center top;
+    }
+  }
+}
+.human,
+.gallows__part--line {
+  transform: translateX(-50%) rotate(0deg);
+}
+.human {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  left: 50%;
+  top: 30%;
+  transform-origin: center -27.5%;
+
+  &__part {
+    position: absolute;
+    background-color: black;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &--head {
+      width: 20%;
+      height: 20%;
+      border-radius: 50%;
+    }
+    &--body {
+      height: 50%;
+      width: 4%;
+      top: 1%;
+    }
+    &--left-arm,
+    &--right-arm {
+      top: 25%;
+    }
+    &--left-leg,
+    &--right-leg {
+      top: 47%;
+    }
+    &--left-arm,
+    &--right-arm,
+    &--left-leg,
+    &--right-leg {
+      transform-origin: center top;
+      width: 4%;
+      height: 20%;
+    }
+    &--left-arm,
+    &--left-leg {
+      transform: translateX(-50%) rotate(-30deg);
+    }
+    &--right-arm,
+    &--right-leg {
+      transform: translate(-50%) rotate(30deg);
+    }
+  }
+}

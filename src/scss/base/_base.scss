@@ -8,14 +8,14 @@
 
 :root {
   --color-primary: red;
-  --color-secondary: blue;
+  --color-secondary: #ccdbfd;
   --color-tertiary: #c1d3fe;
 }
 
 body {
-  // background-color: var(--color-primary);
+  font-family: sans-serif;
   width: 100%;
-  height: 100vh;
   overflow: hidden;
   position: relative;
+  background-color: var(--color-tertiary);
 }

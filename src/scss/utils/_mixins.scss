@@ -1,0 +1,12 @@
+@mixin bodyELementsSize {
+  width: 3%;
+  height: 15%;
+}
+
+@mixin rightSide {
+  transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+@mixin leftSide {
+  transform: translate(-50%, -50%) rotate(30deg);
+}

@@ -1,0 +1,21 @@
+.alphabet {
+  display: flex;
+  flex-wrap: wrap;
+  //   background-color: red;
+  justify-content: center;
+  &__char {
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 40px;
+    border-radius: 5px;
+    width: 40px;
+    border: 1px black solid;
+    margin: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: var(--color-secondary);
+    transition: transform 0.5s;
+  }
+}

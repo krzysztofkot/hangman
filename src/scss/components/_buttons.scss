@@ -1,0 +1,17 @@
+.btn {
+  margin: 0 auto;
+  padding: 6px 12px;
+  font-size: 32px;
+  text-transform: uppercase;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+}
+
+.letter {
+  margin: 0 5px;
+  width: 32px;
+  font-weight: 700;
+  border-bottom: red 4px solid;
+}

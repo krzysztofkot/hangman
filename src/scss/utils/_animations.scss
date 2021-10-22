@@ -1,0 +1,55 @@
+.animation {
+  &__whole {
+    animation: windBlow 2.5s infinite alternate ease-in-out;
+  }
+  &__left-side {
+    animation: leftSideMove 2.5s 0.3s infinite alternate linear both;
+  }
+  &__right-side {
+    animation: rightSideMove 2.5s 0.3s infinite alternate linear both;
+  }
+}
+
+@keyframes windBlow {
+  0% {
+    transform: translateX(-50%) rotate(-20deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(20deg);
+  }
+}
+
+@keyframes leftSideMove {
+  0% {
+    transform: translateX(-50%) rotate(-45deg);
+  }
+  25% {
+    transform: translateX(-50%) rotate(-30deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  75% {
+    transform: translateX(-50%) rotate(10deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(20deg);
+  }
+}
+@keyframes rightSideMove {
+  0% {
+    transform: translateX(-50%) rotate(-20deg);
+  }
+  25% {
+    transform: translateX(-50%) rotate(-10deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  75% {
+    transform: translateX(-50%) rotate(30deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
