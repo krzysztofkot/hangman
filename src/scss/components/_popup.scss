@@ -1,0 +1,23 @@
+.popup {
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  height: 100vh;
+  position: absolute;
+  margin: 0 auto;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%);
+  background-color: var(--color-tertiary);
+  z-index: 5;
+  &__block {
+    @include flex-justify-center;
+    @media (orientation: portrait) {
+      flex-direction: column;
+    }
+  }
+  &__description {
+    @include chars;
+    @include flex-justify-center;
+  }
+}

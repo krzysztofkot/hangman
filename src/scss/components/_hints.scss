@@ -1,0 +1,36 @@
+.hints {
+  &__btn {
+    @include btn-style;
+    font-size: 24px;
+  }
+  &__background {
+    background-color: rgba(#000, 0.5);
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+  }
+  &__popup {
+    // position: absolute;
+  }
+  &__desc,
+  &__background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__desc {
+    transform: translate(-50%, -50%);
+    background-color: var(--color-primary);
+    padding: 12px;
+    z-index: 3;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 80%;
+    max-width: calc(1200px * 0.8);
+    @media screen and (min-width: 768px) {
+      font-size: 24px;
+    }
+  }
+}
