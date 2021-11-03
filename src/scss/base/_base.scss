@@ -7,12 +7,14 @@
 }
 
 :root {
-  --color-primary: red;
+  --color-primary: #64b5f6;
   --color-secondary: #ccdbfd;
   --color-tertiary: #c1d3fe;
+  --border: red solid 4px;
 }
 
 body {
+  margin: 0 auto;
   font-family: sans-serif;
   width: 100%;
   overflow: hidden;

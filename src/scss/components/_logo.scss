@@ -1,10 +1,4 @@
 .logo {
-  &__description {
-    text-align: center;
-    font-size: 40px;
-    text-transform: uppercase;
-  }
-
   &__container {
     margin: 0 auto;
     position: relative;
@@ -16,8 +10,8 @@
     }
 
     &--small {
-      width: min(50vh, 50vw);
-      height: min(50vh, 50vw);
+      width: min(45vh, 45vw);
+      height: min(45vh, 45vw);
       max-width: 400px;
       max-height: 400px;
     }

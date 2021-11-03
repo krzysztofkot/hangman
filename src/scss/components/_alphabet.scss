@@ -1,21 +1,40 @@
 .alphabet {
-  display: flex;
+  @include flex-justify-center;
   flex-wrap: wrap;
-  //   background-color: red;
-  justify-content: center;
+
   &__char {
-    text-transform: uppercase;
+    @include chars;
     cursor: pointer;
-    font-size: 40px;
-    border-radius: 5px;
     width: 40px;
-    border: 1px black solid;
-    margin: 8px;
+    border-radius: 5px;
+    margin: 4px;
     display: flex;
     align-items: center;
+    border: none;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     transition: transform 0.5s;
+    @media screen and (min-width: 768px) {
+      width: 60px;
+    }
+  }
+}
+
+.word {
+  @include chars;
+  @include flex-justify-center;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.letter {
+  @include flex-justify-center;
+  width: 32px;
+  margin: 0 5px;
+  font-weight: 700;
+  border-bottom: var(--border);
+  @media screen and (min-width: 768px) {
+    width: 52px;
   }
 }
