@@ -8,16 +8,16 @@
     <title>Hangman game</title>
   </head>
   <body>
-    <div class="popup">
-      <div class="popup__block">
-        <h1 class="popup__description">
+    <div class="start">
+      <div class="start__block">
+        <h1 class="start__description">
           <span class="letter">h</span><span class="letter">a</span
           ><span class="letter">n</span><span class="letter">g</span
           ><span class="letter">m</span><span class="letter">a</span
           ><span class="letter">n</span>
         </h1>
       </div>
-      <div class="popup__block">
+      <div class="start__block">
         <header class="logo">
           <div class="logo__container logo__container--big">
             <div class="gallows">
@@ -50,21 +50,21 @@
 
         <nav class="nav">
           <ul class="nav__list">
-            <li class="nav__item">
-              <button class="btn">
+            <li class="nav__item" data-level="easy">
+              <button class="btn btn--letter">
                 <span class="letter">e</span><span class="letter">a</span
                 ><span class="letter">s</span><span class="letter">y</span>
               </button>
             </li>
-            <li class="nav__item">
-              <button class="btn">
+            <li class="nav__item" data-level="medium">
+              <button class="btn btn--letter">
                 <span class="letter">m</span><span class="letter">e</span
                 ><span class="letter">d</span><span class="letter">i</span
                 ><span class="letter">u</span><spa class="letter">m</spa>
               </button>
             </li>
-            <li class="nav__item">
-              <button class="btn">
+            <li class="nav__item" data-level="hard">
+              <button class="btn btn--letter">
                 <span class="letter">h</span><span class="letter">a</span
                 ><span class="letter">r</span><span class="letter">d</span>
               </button>
@@ -75,20 +75,11 @@
     </div>
     <main class="playground">
       <section class="playground__top">
-        <div class="hints">
-          <button class="hints__btn">HINTS</button>
-          <div class="hints__popup">
-            <div class="hints__background"></div>
-            <div class="hints__desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda, sapiente nesciunt! Laudantium dicta, ex ad sed id
-              corrupti, facilis sapiente veniam, deserunt eum expedita optio.
-              Culpa, beatae eligendi. Voluptatem, reiciendis. Modi saepe vero
-              laudantium, obcaecati nisi aperiam laborum labore eos quod
-              consectetur sint deserunt laboriosam ipsum molestias soluta
-              reprehenderit. Officia dicta inventore illo laudantium at,
-              mollitia harum voluptatibus natus cupiditate!
-            </div>
+        <button class="btn btn--blue" data-btn="hint">HINT</button>
+        <div class="popup popup--hint hidden" data-action="close">
+          <div class="popup__background"></div>
+          <div class="popup__container">
+            <p class="popup__desc" data-desc="hint">text</p>
           </div>
         </div>
         <div class="lives">
@@ -100,41 +91,54 @@
         <div class="logo">
           <div class="logo__container logo__container--small">
             <div class="gallows">
-              <div class="gallows__part gallows__part--base"></div>
-              <div class="gallows__part gallows__part--pillar"></div>
-              <div class="gallows__part gallows__part--transom"></div>
-              <div class="gallows__part gallows__part--strut"></div>
+              <div class="gallows__part gallows__part--base" data-parts></div>
+              <div class="gallows__part gallows__part--pillar" data-parts></div>
               <div
-                class="gallows__part gallows__part--line animation__whole"
+                class="gallows__part gallows__part--transom"
+                data-parts
+              ></div>
+              <div class="gallows__part gallows__part--strut" data-parts></div>
+              <div
+                class="gallows__part gallows__part--line"
+                data-animation="animation__whole"
+                data-parts
               ></div>
             </div>
-            <div class="human animation__whole">
-              <div class="human__part human__part--head"></div>
-              <div class="human__part human__part--body"></div>
+            <div class="human" data-animation="animation__whole">
+              <div class="human__part human__part--head" data-parts></div>
+              <div class="human__part human__part--body" data-parts></div>
               <div
-                class="human__part human__part--left-arm animation__left-side"
+                class="human__part human__part--left-arm"
+                data-animation="animation__left-side"
+                data-parts
               ></div>
               <div
-                class="human__part human__part--right-arm animation__right-side"
+                class="human__part human__part--right-arm"
+                data-animation="animation__right-side"
+                data-parts
               ></div>
               <div
-                class="human__part human__part--left-leg animation__left-side"
+                class="human__part human__part--left-leg"
+                data-animation="animation__left-side"
+                data-parts
               ></div>
               <div
-                class="human__part human__part--right-leg animation__right-side"
+                class="human__part human__part--right-leg"
+                data-animation="animation__right-side"
+                data-parts
               ></div>
             </div>
           </div>
         </div>
         <div class="word">
-          <span class="letter">g</span><span class="letter">u</span
+          <!-- <span class="letter">g</span><span class="letter">u</span
           ><span class="letter">e</span><span class="letter">s</span
           ><span class="letter">s</span><span class="letter">i</span
           ><span class="letter">n</span><span class="letter">g</span>
           <span class="letter">g</span>
           <span class="letter">g</span>
           <span class="letter">g</span>
-          <span class="letter">g</span>
+          <span class="letter">g</span> -->
         </div>
       </section>
       <section class="playground__bottom">
@@ -166,5 +170,21 @@
         </div>
       </section>
     </main>
+    <div class="popup popup--game-over">
+      <div class="popup__background"></div>
+      <div class="popup__container">
+        <p class="popup__desc" data-desc="game-over">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima,
+          officia molestias dignissimos sed laboriosam atque sequi eum voluptas
+          reprehenderit magnam repellat provident et autem hic. Fugit hic itaque
+          perferendis tempore.
+        </p>
+        <button class="btn btn--letter" data-btn="start again">
+          <span class="letter">s</span><span class="letter">t</span
+          ><span class="letter">a</span><span class="letter">r</span>
+          <span class="letter">t</span>
+        </button>
+      </div>
+    </div>
   </body>
 </html>
