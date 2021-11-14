@@ -1,0 +1,10 @@
+.hidden {
+  opacity: 0;
+  //   display: none;
+  transform: scale(0) !important;
+}
+
+.password {
+  font-weight: 700;
+  text-transform: uppercase;
+}

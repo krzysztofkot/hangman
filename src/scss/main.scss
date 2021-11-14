@@ -1,4 +1,5 @@
 @import "./utils/mixins";
+@import "./utils/utilities";
 @import "./utils/animations";
 @import "./base/base";
 @import "./components/alphabet";
@@ -8,4 +9,4 @@
 @import "./components/logo";
 @import "./components/navigation";
 @import "./components/playground";
-@import "./components/hints";
+@import "./components/start";

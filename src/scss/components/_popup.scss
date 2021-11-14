@@ -1,23 +1,40 @@
 .popup {
-  padding: 20px;
-  width: 100%;
-  max-width: 1200px;
-  height: 100vh;
-  position: absolute;
-  margin: 0 auto;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%);
-  background-color: var(--color-tertiary);
-  z-index: 5;
-  &__block {
-    @include flex-justify-center;
-    @media (orientation: portrait) {
-      flex-direction: column;
+  &__btn {
+    @include btn-style;
+    font-size: 24px;
+  }
+  &__background {
+    background-color: rgba(#000, 0.5);
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+  }
+  &__container {
+    background-color: red;
+  }
+  &__container,
+  &__background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__container {
+    background-color: var(--color-primary);
+    padding: 12px;
+    z-index: 3;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 80%;
+    max-width: calc(1200px * 0.8);
+    @media screen and (min-width: 768px) {
+      font-size: 24px;
     }
   }
-  &__description {
-    @include chars;
-    @include flex-justify-center;
+
+  &__desc {
+    margin: 12px 0;
+    text-align: center;
   }
 }

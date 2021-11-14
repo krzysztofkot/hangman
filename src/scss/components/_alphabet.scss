@@ -14,9 +14,15 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     background-color: var(--color-primary);
-    transition: transform 0.5s;
+    transition: all 0.5s;
     @media screen and (min-width: 768px) {
       width: 60px;
+    }
+
+    &--used {
+      cursor: default;
+      background-color: var(--color-tertiary);
+      color: transparent;
     }
   }
 }
@@ -34,6 +40,7 @@
   margin: 0 5px;
   font-weight: 700;
   border-bottom: var(--border);
+
   @media screen and (min-width: 768px) {
     width: 52px;
   }
