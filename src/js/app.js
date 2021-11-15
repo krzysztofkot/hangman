@@ -21,7 +21,6 @@ export default class App {
     this.ui.hideHangman();
     this.lives = 11;
     this.ui.displayLives = this.lives;
-    this.ui.toggleGameOverPopup();
     this.ui.removeKeyboard();
     this.wrongGuesses = 0;
     //hide hints popup
@@ -39,6 +38,8 @@ export default class App {
 
   startAgainGame() {
     this.ui.toggleStartWindow();
+    this.ui.toggleGameOverPopup();
+    this.ui.hideStats();
   }
 
   enableMenu() {
@@ -137,7 +138,6 @@ export default class App {
   async generate() {
     try {
       const res = await this.word.fetchWord(this.level);
-      console.log(res);
       this.ui.generatePassword(res.word);
       this.word.wordObj = res;
 
@@ -146,13 +146,14 @@ export default class App {
       this.ui.generateKeyboard();
       //Enable keyboard
       this.enableKeyboard();
-      //TODO Add text to hint popup;
       this.ui.addHintDescription(this.word.wordObj.description);
       //add text pattern to compare elements
       this.pattern = "-".repeat(res.word.length);
-      console.log(this.pattern);
+      this.ui.showStats();
     } catch (err) {
-      //TODO add here popup that indicates error
+      console.log("here");
+      this.ui.showErrorPopup(err);
+      this.ui.hideStats();
     }
   }
 }

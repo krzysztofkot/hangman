@@ -1,6 +1,7 @@
 export default class UI {
   constructor() {
     this.startWindow = document.querySelector(".start");
+    this.stats = document.querySelector(".playground__top");
     this.popupHint = document.querySelector(".popup--hint");
     this.hintDesc = document.querySelector("[data-desc='hint'");
     this.popupGameOver = document.querySelector(".popup--game-over");
@@ -17,6 +18,14 @@ export default class UI {
     while (this.keyboardContainer.firstChild) {
       this.keyboardContainer.removeChild(this.keyboardContainer.firstChild);
     }
+  }
+
+  showStats() {
+    this.stats.classList.remove("hidden");
+  }
+
+  hideStats() {
+    this.stats.classList.add("hidden");
   }
 
   addHintDescription(desc) {
@@ -82,6 +91,11 @@ export default class UI {
 
   toggleGameOverPopup() {
     this.popupGameOver.classList.toggle("hidden");
+  }
+
+  showErrorPopup(err) {
+    this.toggleGameOverPopup();
+    this.gameOverDesc.textContent = err.message;
   }
 
   showPopup(flag, word) {

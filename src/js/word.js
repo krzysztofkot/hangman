@@ -3,19 +3,6 @@ const API_KEY = "";
 export default class Word {
   constructor() {}
 
-  // async retrieve(level) {
-  //   //simulate API call
-  //   try {
-  //     return {
-  //       word: level,
-  //       description:
-  //         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, sapiente nesciunt! Laudantium dicta, ex ad sed id corrupti, facilis sapiente veniam, deserunt eum expedita optio. Culpa, beatae eligendi.",
-  //     };
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // }
-
   replaceElements(element, removable, substitute) {
     const replace = removable;
     const re = new RegExp(replace, "ig");
@@ -34,6 +21,7 @@ export default class Word {
 
       if (!res.ok)
         throw new Error(`Error occured, status code: ${res.status} `);
+
       const data = await res.json();
 
       const descRes = await fetch(
@@ -42,9 +30,6 @@ export default class Word {
       if (!descRes.ok)
         throw new Error(`Description search failed. CODE: ${descRes.status}`);
       const descData = await descRes.json();
-      console.log(descData[0].text);
-
-      console.log(`word: ${data.word} \n desc: ${descData[0].text}`);
 
       const replacedWord = this.replaceElements(
         data.word,
@@ -71,7 +56,6 @@ export default class Word {
 
       return { word: replacedWord.toLowerCase(), description: replacedDesc };
     } catch (err) {
-      console.error(`${err}`);
       throw err;
     }
   }
