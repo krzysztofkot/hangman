@@ -2,6 +2,7 @@ export default class UI {
   constructor() {
     this.startWindow = document.querySelector(".start");
     this.stats = document.querySelector(".playground__top");
+    this.spinner = document.querySelector(".spinner");
     this.popupHint = document.querySelector(".popup--hint");
     this.hintDesc = document.querySelector("[data-desc='hint'");
     this.popupGameOver = document.querySelector(".popup--game-over");
@@ -18,6 +19,10 @@ export default class UI {
     while (this.keyboardContainer.firstChild) {
       this.keyboardContainer.removeChild(this.keyboardContainer.firstChild);
     }
+  }
+
+  toggleSpinner() {
+    this.spinner.classList.toggle("hidden");
   }
 
   showStats() {
