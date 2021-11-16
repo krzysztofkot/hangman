@@ -8,10 +8,21 @@ export default class App {
     this.binedKeyboard = this.charClicked.bind(this);
     this.word = new Word();
     this.ui = new UI();
+    this.resizeApp();
     this.enableMenu();
     this.enableStartAgainBtn();
     this.enableHintBtn();
     this.enableHintPopup();
+  }
+
+  resizeApp() {
+    this.resize();
+    window.addEventListener("resize", this.resize);
+  }
+
+  resize() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
   }
 
   init() {
@@ -123,7 +134,9 @@ export default class App {
 
   gameWon() {
     this.disableKeyboard();
-    this.ui.showPopup(true);
+    setTimeout(() => {
+      this.ui.showPopup(true);
+    }, 3000);
   }
 
   gameLost() {
@@ -137,6 +150,7 @@ export default class App {
 
   async generate() {
     try {
+      this.ui.toggleSpinner();
       const res = await this.word.fetchWord(this.level);
       this.ui.generatePassword(res.word);
       this.word.wordObj = res;
@@ -154,6 +168,8 @@ export default class App {
       console.log("here");
       this.ui.showErrorPopup(err);
       this.ui.hideStats();
+    } finally {
+      this.ui.toggleSpinner();
     }
   }
 }
