@@ -1,12 +1,18 @@
-const API_KEY = "";
+const API_KEY = "jemwxxisvxvt7ln9n363blwz6vx6y3jvx9q3uzngzpybctyvo";
 
 export default class Word {
   constructor() {}
 
-  replaceElements(element, removable, substitute) {
+  replaceWord(element) {
+    const replace = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/;
+    const re = new RegExp(replace, "ig");
+    return element.replace(re, "");
+  }
+
+  replaceDescription(element, removable) {
     const replace = removable;
     const re = new RegExp(replace, "ig");
-    return element.replace(re, substitute);
+    return element.replace(re, "XXX");
   }
 
   async fetchWord(difficult) {
@@ -31,30 +37,12 @@ export default class Word {
         throw new Error(`Description search failed. CODE: ${descRes.status}`);
       const descData = await descRes.json();
 
-      const replacedWord = this.replaceElements(
-        data.word,
-        /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/,
-        ""
-      );
+      let desc;
+      if (!descData[0].text) desc = descData[0].text;
+      else if (Array.isArray(descData[0].text)) desc = descData[0].text[1];
+      else desc = descData[0].text;
 
-      if (!descData[0].text) {
-        replacedDesc = "Sorry, description not provided!";
-      } else {
-        if (Array.isArray(descData[0].text))
-          replacedDesc = this.replaceElements(
-            descData[0].text[1],
-            data.word,
-            "XXX"
-          );
-        else
-          replacedDesc = this.replaceElements(
-            descData[0].text,
-            data.word,
-            "XXX"
-          );
-      }
-
-      return { word: replacedWord.toLowerCase(), description: replacedDesc };
+      return { word: data.word.toLowerCase(), description: desc };
     } catch (err) {
       throw err;
     }

@@ -84,18 +84,28 @@ export default class App {
     );
   }
 
-  checkCharInWord(char) {
-    const { word } = this.word.wordObj;
-    const ArrOfIndexes = [];
-    for (let i = 0; i < word.length; ) {
-      const charIndex = word.indexOf(char, i);
-      if (charIndex === -1) {
-        break;
+  checkCharInWord(chars) {
+    const arr = [];
+    chars.forEach((char, index) => {
+      const currentElement = document.querySelector(`[data-char="${char}"]`);
+      this.ui.setBtntoInactive(currentElement);
+      currentElement.dataset.used = true;
+
+      const { word } = this.word.wordObj;
+      const ArrOfIndexes = [];
+      for (let i = 0; i < word.length; ) {
+        const charIndex = word.indexOf(char, i);
+        if (charIndex === -1) {
+          break;
+        }
+        ArrOfIndexes.push(charIndex);
+        i = charIndex + 1;
       }
-      ArrOfIndexes.push(charIndex);
-      i = charIndex + 1;
-    }
-    return ArrOfIndexes;
+      arr[index] = ArrOfIndexes;
+    });
+    chars.forEach((char, index) => {
+      arr[index].length ? this.charMatch(char, arr[index]) : this.wrongChar();
+    });
   }
 
   charClicked(e) {
@@ -104,10 +114,7 @@ export default class App {
       //get character
       const clickedChar = currentElement.dataset.char;
       //compare character
-      const indexes = this.checkCharInWord(clickedChar);
-      currentElement.dataset.used = true;
-      this.ui.setBtntoInactive(currentElement);
-      indexes.length ? this.charMatch(clickedChar, indexes) : this.wrongChar();
+      this.checkCharInWord([clickedChar]);
     }
   }
 
@@ -136,7 +143,7 @@ export default class App {
     this.disableKeyboard();
     setTimeout(() => {
       this.ui.showPopup(true);
-    }, 3000);
+    }, 1500);
   }
 
   gameLost() {
@@ -145,15 +152,22 @@ export default class App {
     this.ui.addHangmanAnimation();
     setTimeout(() => {
       this.ui.showPopup(false, this.word.wordObj.word);
-    }, 3000);
+    }, 1500);
   }
 
   async generate() {
     try {
       this.ui.toggleSpinner();
       const res = await this.word.fetchWord(this.level);
-      this.ui.generatePassword(res.word);
-      this.word.wordObj = res;
+      const replacedWord = this.word.replaceWord(res.word);
+      let replacedDesc;
+      if (!res.description) {
+        replacedDesc = "Sorry, description not provided!";
+      } else {
+        replacedDesc = this.word.replaceDescription(res.description, res.word);
+      }
+      this.word.wordObj = { word: replacedWord, description: replacedDesc };
+      this.ui.generatePassword(this.word.wordObj.word);
 
       //generate keyborard
 
@@ -165,7 +179,6 @@ export default class App {
       this.pattern = "-".repeat(res.word.length);
       this.ui.showStats();
     } catch (err) {
-      console.log("here");
       this.ui.showErrorPopup(err);
       this.ui.hideStats();
     } finally {

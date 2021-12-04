@@ -21,8 +21,7 @@
 
     &--used {
       cursor: default;
-      background-color: var(--color-tertiary);
-      color: transparent;
+      opacity: 0;
     }
   }
 }
