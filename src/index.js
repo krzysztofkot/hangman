@@ -8,5 +8,5 @@ import UI from "./js/ui";
 const app = new App(Word, UI);
 
 if (window.Cypress) {
+  window.app = app;
 }
-window.app = app;
